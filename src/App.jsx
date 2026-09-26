@@ -14,7 +14,25 @@ const QUESTION_BANK = [
   { id: 'Q09', category: '디자인', q: '나만의 해설사 명함을 만든다면 재질은?', a: '시간의 흔적이 묻어나는 거친 한지', b: '깔끔하고 세련된 반투명 플라스틱', tagsA: '전통,아날로그,빈티지', tagsB: '현대적,세련됨,디지털' },
   { id: 'Q10', category: '소통', q: '관람객이 엉뚱한 역사 질문을 한다면?', a: '"그건 사실 이렇습니다" 정확한 팩트 짚어주기', b: '"와, 그렇게 생각하실 수도 있겠네요!" 일단 공감하기', tagsA: '정확성,객관성,지식', tagsB: '포용성,유연성,공감' },
   { id: 'Q11', category: 'AI·미래', q: 'AI에게 나의 해설 파트너를 부탁한다면?', a: '모르는 연도와 인물을 바로바로 찾아주는 척척박사 AI', b: '해설 중간중간 농담을 던져 분위기를 띄우는 재치 AI', tagsA: '기능성,보조,정보중심', tagsB: '엔터테인먼트,감성,친화력' },
-  { id: 'Q12', category: '이야기', q: '가장 마음이 가는 제물포의 풍경은?', a: '밤바다에 정박해 있는 이양선의 불빛', b: '아침 일찍부터 문을 여는 시끌벅적한 우각동 거리', tagsA: '낭만,신비로움,정적인', tagsB: '일상,생활감,동적인' }
+  { id: 'Q12', category: '이야기', q: '가장 마음이 가는 제물포의 풍경은?', a: '밤바다에 정박해 있는 이양선의 불빛', b: '아침 일찍부터 문을 여는 시끌벅적한 우각동 거리', tagsA: '낭만,신비로움,정적인', tagsB: '일상,생활감,동적인' },
+  { id: 'Q13', category: '건축', q: '홍예문을 지날 때 머릿속에 떠오르는 생각은?', a: '일제강점기 아픈 역사와 시대의 무게감', b: '돌을 하나하나 쌓아 올렸을 석공들의 손길', tagsA: '역사의식,거시적시각,진중함', tagsB: '디테일,인간적교감,관찰력' },
+  { id: 'Q14', category: '예술·감성', q: '인천아트플랫폼을 관람하는 나만의 방식은?', a: '작품 설명(도판)을 꼼꼼히 읽으며 기획 의도 파악하기', b: '내 마음에 확 와닿는 공간과 색감에 집중하기', tagsA: '분석적,논리적,지적탐구', tagsB: '직관적,감성적,예술적' },
+  { id: 'Q15', category: '외교·역사', q: '자유공원 맥아더 장군 동상 앞에 선다면?', a: '한국 현대사의 거대한 전환점을 되짚어보기', b: '공원을 뛰어노는 비둘기와 시민들의 평화로운 일상 보기', tagsA: '역사적맥락,거시안,진지함', tagsB: '현재적가치,일상성,따뜻함' },
+  { id: 'Q16', category: '성향', q: '해설 중 예상치 못한 돌발 상황이 발생했다!', a: '당황하지 않고 준비된 메뉴얼대로 차분히 수습하기', b: '재치 있는 애드리브로 오히려 분위기를 유쾌하게 만들기', tagsA: '안정감,철저함,노련함', tagsB: '유연성,위기대처,재치' },
+  { id: 'Q17', category: '시간여행', q: '1900년대 각국 영사관 거리를 걷고 있다면?', a: '건축 양식의 차이를 비교하며 근대 도시 계획 분석하기', b: '각국 신사들과 신여성들의 복장과 유행 구경하기', tagsA: '학구적,구조적,전문가', tagsB: '트렌드,시각적재미,관찰자' },
+  { id: 'Q18', category: '음식·오감', q: '답사 후 지친 몸을 이끌고 찾아가고 싶은 곳은?', a: '오래된 역사가 깃든 차이나타운의 숨은 중식당', b: '탁 트인 바다 뷰가 보이는 세련된 월미도 카페', tagsA: '전통미식,깊은맛,오래된공간', tagsB: '탁트인시야,현대적감성,휴식' },
+  { id: 'Q19', category: '해설방식', q: '해설 대본을 짤 때 가장 공을들이는 부분은?', a: '사건의 연도와 역사적 인물 관계의 정확성', b: '사람들의 귀를 쫑긋 세우게 만드는 첫 오프닝 멘트', tagsA: '완벽주의,학술적,팩트중심', tagsB: '흥미유발,쇼맨십,몰입감' },
+  { id: 'Q20', category: '공간·역사', q: '제물포구락부를 마주했을 때 가장 먼저 드는 느낌은?', a: '백 년 전 사교계의 낭만과 쓸쓸한 기취', b: '목조 건물이 풍기는 독특한 이국적 아름다움', tagsA: '역사적상상력,스토리,깊이', tagsB: '시각적아름다움,미적취향,스타일' },
+  { id: 'Q21', category: '소통', q: '어린이 관람객에게 개항장을 설명해 준다면?', a: '만화나 애니메이션 캐릭터에 빗대어 쉽게 설명하기', b: '그 당시 아이들은 어떻게 놀았는지 생활상 들려주기', tagsA: '친화력,응용력,재미', tagsB: '생활사,공감대,현실적' },
+  { id: 'Q22', category: '장소취향', q: '내가 가장 좋아하는 개항장의 시간대는?', a: '가로등에 불이 켜지기 시작하는 푸른 저녁 황혼 무렵', b: '따스한 햇살이 골목 구석구석 스며드는 나른한 오후', tagsA: '낭만적,감성풍만,차분함', tagsB: '따뜻함,활기참,포근함' },
+  { id: 'Q23', category: '창작·상상력', q: '개항장 야행 축제에서 내가 기획해 보고 싶은 프로그램은?', a: '근대 복장을 하고 역사 속 사건을 추리하는 방탈출 게임', b: '옛 가요를 라이브로 들으며 즐기는 야외 달빛 콘서트', tagsA: '체험형,참여,두뇌플레이', tagsB: '청각적감동,힐링,문화예술' },
+  { id: 'Q24', category: '디자인', q: '내가 만드는 해설 가이드북의 표지 스타일은?', a: '고풍스러운 흑백 지도와 캘리그라피 제목', b: '직관적이고 컬러풀한 일러스트 인포그래픽', tagsA: '클래식,품격,아날로그', tagsB: '트렌디,시인성,모던' },
+  { id: 'Q25', category: 'AI·미래', q: '미래의 해설사에게 가장 기대하는 점은?', a: '시공간을 초월해 그 시절 인물과 직접 대화하는 기술', b: '관람객의 걸음걸이와 표정을 읽고 속도를 맞춰주는 세심함', tagsA: '혁신적,몰입감,디지털체험', tagsB: '맞춤형,배려,인간중심AI' },
+  { id: 'Q26', category: '감성', q: '답사를 마치고 돌아오는 길에 주로 하는 생각은?', a: '오늘 전달한 역사 지식이 왜곡되진 않았을까 하는 반성', b: '함께 걸었던 사람들과 나눈 눈빛과 웃음의 여운', tagsA: '책임감,진지함,성찰', tagsB: '감동,유대감,여유' },
+  { id: 'Q27', category: '색감', q: '인천항의 옛모습을 떠올릴 때 생각나는 톤은?', a: '빛 바랜 세피아 톤과 묵직한 무채색', b: '활기찬 항구의 원색적인 컬러 바이브', tagsA: '빈티지,묵직함,기록성', tagsB: '다채로움,생동감,역동성' },
+  { id: 'Q28', category: '이야기', q: '개항장 골목에서 우연히 발견하고 싶은 보물은?', a: '개항기 당시 누군가가 남긴 친필 일기장', b: '지금은 사라진 오래된 수제 과자점의 레시피 북', tagsA: '역사적가치,문헌,진중함', tagsB: '일상의발견,문화,호기심' },
+  { id: 'Q29', category: '성향', q: '새로운 역사 사료나 유물이 발굴되었다는 소식을 들으면?', a: '논문이나 기사를 찾아 내용을 정밀하게 분석해 본다', b: '당장 주말에 그 유물이 있는 장소로 달려간다', tagsA: '탐구적,지적용구,이론파', tagsB: '실행력,발품,행동파' },
+  { id: 'Q30', category: '공간·역사', q: '나에게 ‘개항장’이란 어떤 공간인가요?', a: '대한민국의 근대와 세계가 처음 만난 역사의 무대', b: '시간이 멈춘 듯하면서도 살아 숨 쉬는 나의 산책길', tagsA: '거대서사,역사적의의,사명감', tagsB: '개인적영감,힐링,애정' }
 ];
 
 export default function App() {
@@ -24,6 +42,43 @@ export default function App() {
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [resultData, setResultData] = useState(null);
+  
+  // 음성 안내
+  const speakWelcome = () => {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const text = "안녕하세요. 반갑습니다!";
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'ko-KR'; 
+      utterance.rate = 1.0;   
+      window.speechSynthesis.speak(utterance);
+    }
+  };  
+
+  // 화면이 처음 렌더링될 때 환영 인사 음성 출력
+  useEffect(() => {
+    speakWelcome();
+  }, []);
+
+  // 컴포넌트 내부에서 오디오 객체 선언
+const bgmAudio = useRef(new Audio('여기에_무료_BGM_음원_URL_또는_파일경로.mp3'));
+
+useEffect(() => {
+  bgmAudio.current.loop = true; // 반복 재생
+  if (step === 'quiz') {
+    bgmAudio.current.play().catch(e => console.log("BGM 자동 재생 제한:", e));
+  } else {
+    bgmAudio.current.pause();
+    bgmAudio.current.currentTime = 0;
+  }
+}, [step]);
+
+// 10번 문항을 마치고 넘어가는 순간 효과음 재생
+const soundEffect = new Audio('여기에_효과음_음원_URL.mp3');
+soundEffect.play().catch(e => console.log(e));
+
+setStep('loading');
+generateAIResult(newAnswers);
 
   // 초기화 (질문 10개 랜덤 세팅)
   useEffect(() => {
@@ -67,6 +122,9 @@ export default function App() {
       당신은 인천 제물포구 개항장 역사문화 해설사를 위한 전문 AI 분석가입니다.
       해설사님의 이름(호칭)은 '${docentName}'입니다.
       아래는 이 해설사님이 10개의 밸런스 게임에서 선택한 결과와 그에 따른 성향 태그입니다.
+      - 나의 해설사 성향 설명은 핵심을 담아 딱 3문장으로 작성해주세요.
+      - 각 문장은 줄바꿈 기호(\n\n)를 이용해 각각 독립된 단락으로 나누어 가독성 좋게 출력해주세요.
+
 
       [선택 데이터]
       ${analysisData}
@@ -199,12 +257,14 @@ export default function App() {
           <div className="space-y-4">
             <button 
               onClick={() => handleAnswer(currentQ.a, currentQ.tagsA)}
+              onMouseUp={(e) => e.target.blur()}
               className="w-full bg-white hover:bg-amber-50 border-2 border-transparent hover:border-amber-300 text-gray-700 font-medium py-6 px-6 rounded-2xl shadow-sm transition-all text-left break-keep text-lg"
             >
               {currentQ.a}
             </button>
             <button 
               onClick={() => handleAnswer(currentQ.b, currentQ.tagsB)}
+              onMouseUp={(e) => e.target.blur()}
               className="w-full bg-white hover:bg-amber-50 border-2 border-transparent hover:border-amber-300 text-gray-700 font-medium py-6 px-6 rounded-2xl shadow-sm transition-all text-left break-keep text-lg"
             >
               {currentQ.b}
@@ -288,7 +348,7 @@ export default function App() {
             <div className="space-y-6">
               {resultData.contents.map((content, index) => (
                 <div key={index} className="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
-                  <span className="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                  <span className="inline-block bg-amber-300 text-amber-950 text-xs font-bold border-2 border-amber-500 shadow-md px-4 py-1.5 rounded-full mb-3">
                     {content.type}
                   </span>
                   <h3 className="text-lg font-bold text-gray-800 mb-3 leading-tight">{content.title}</h3>
