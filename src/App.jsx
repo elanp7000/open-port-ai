@@ -62,25 +62,23 @@ export default function App() {
 
   // 컴포넌트 내부에서 오디오 객체 선언
 const bgmAudio = useRef(new Audio('/bgm.mp3'));
-bgmAudio.current.volume = 0.3; // 👈 30% 크기로 은은하게 설정
 
+// 1. 컴포넌트가 처음 뜰 때 BGM 설정 (반복 재생 및 30% 볼륨)
 useEffect(() => {
-  bgmAudio.current.loop = true; // 반복 재생
+  bgmAudio.current.loop = true; // 반복 재생 설정
+  bgmAudio.current.volume = 0.3; // 👈 30% 크기로 은은하게 설정
+}, []);
+
+// 퀴즈 진행 단계에 따른 BGM 재생/정지
+useEffect(() => {
   if (step === 'quiz') {
-    bgmAudio.current.play().catch(e => console.log("BGM 자동 재생 제한:", e));
+    bgmAudio.current.play().catch(err => console.log("BGM 재생 오류:", err));
   } else {
     bgmAudio.current.pause();
     bgmAudio.current.currentTime = 0;
   }
 }, [step]);
 
-// 10번 문항을 마치고 넘어가는 순간 효과음 재생
-const soundEffect = new Audio('/success.mp3');
-bgmAudio.current.volume = 0.3; // 👈 30% 크기로 은은하게 설정
-soundEffect.play().catch(e => console.log(e));
-
-setStep('loading');
-generateAIResult(newAnswers);
 
   // 초기화 (질문 10개 랜덤 세팅)
   useEffect(() => {
@@ -103,6 +101,11 @@ generateAIResult(newAnswers);
     if (currentQIndex < 9) {
       setCurrentQIndex(currentQIndex + 1);
     } else {
+      // 10번 문항을 마치고 넘어가는 순간 효과음 재생 및 로딩 전환
+      const soundEffect = new Audio('/success.mp3');
+      soundEffect.volume = 0.4; // 효과음 볼륨 40%
+      soundEffect.play().catch(e => console.log(e));
+
       setStep('loading');
       generateAIResult(newAnswers);
     }
