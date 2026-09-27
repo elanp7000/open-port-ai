@@ -61,7 +61,8 @@ export default function App() {
   }, []);
 
   // 컴포넌트 내부에서 오디오 객체 선언
-const bgmAudio = useRef(new Audio('https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf756.mp3?filename=lofi-study-112191.mp3'));
+const bgmAudio = useRef(new Audio('/bgm.mp3'));
+bgmAudio.current.volume = 0.3; // 👈 30% 크기로 은은하게 설정
 
 useEffect(() => {
   bgmAudio.current.loop = true; // 반복 재생
@@ -74,7 +75,8 @@ useEffect(() => {
 }, [step]);
 
 // 10번 문항을 마치고 넘어가는 순간 효과음 재생
-const soundEffect = new Audio('https://cdn.pixabay.com/download/audio/2021/08/04/audio_12b0c74438.mp3?filename=success-1-6297.mp3');
+const soundEffect = new Audio('/success.mp3');
+bgmAudio.current.volume = 0.3; // 👈 30% 크기로 은은하게 설정
 soundEffect.play().catch(e => console.log(e));
 
 setStep('loading');
