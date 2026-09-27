@@ -62,11 +62,12 @@ export default function App() {
 
   // 컴포넌트 내부에서 오디오 객체 선언
 const bgmAudio = useRef(new Audio('/bgm.mp3'));
+const soundEffectRef = useRef(new Audio('/success.mp3')); // 👈 효과음 useRef 추가
 
 // 1. 컴포넌트가 처음 뜰 때 BGM 설정 (반복 재생 및 30% 볼륨)
 useEffect(() => {
   bgmAudio.current.loop = true; // 반복 재생 설정
-  bgmAudio.current.volume = 0.3; // 👈 30% 크기로 은은하게 설정
+  bgmAudio.current.volume = 0.2; // 👈 20% 크기로 은은하게 설정
 }, []);
 
 // 퀴즈 진행 단계에 따른 BGM 재생/정지
@@ -102,7 +103,7 @@ useEffect(() => {
       setCurrentQIndex(currentQIndex + 1);
     } else {
       // 10번 문항을 마치고 넘어가는 순간 효과음 재생 및 로딩 전환
-      const soundEffect = new Audio('/success.mp3');
+      soundEffectRef.current.currentTime = 0; // 재생 위치를 처음으로 초기화
       soundEffect.volume = 0.4; // 효과음 볼륨 40%
       soundEffect.play().catch(e => console.log(e));
 
@@ -139,14 +140,14 @@ useEffect(() => {
 
       {
         "analysis": "10개의 선택을 종합하여 해설사님의 성향, 취향, 해설 스타일을 분석하는 따뜻한 글. (반드시 '${docentName}'이라는 호칭을 사용하고, 존댓말로 작성)",
-        "imagePrompt": "A highly detailed portrait of a docent in 19th-century Jemulpo open port street in Incheon, retro style, cinematic lighting, photorealistic, incorporating the vibe of [여기에 분석된 해설사의 주요 성향을 영어 키워드로 번역해서 3~4개 삽입]. English only.",
+        "imagePrompt": "A highly creative and unique artistic portrait of a docent in 19th-century Incheon Open Port, dynamically styled with varying artistic mediums like vintage oil painting, soft watercolor, or modern digital illustration based on the user's personality, rich background details, beautiful lighting.",
         "contents": [
           {
             "title": "기억하기 쉽고 창의적인 콘텐츠 제목 (예: 개항장 골목길 ASMR)",
             "type": "콘텐츠 형태 (예: 오디오 해설, AI 숏폼 영상 등)",
             "description": "무엇을 어떻게 만드는지 구체적인 설명",
             "reason": "왜 ${docentName}님에게 이 콘텐츠를 추천하는지 (선택 데이터와 연관지어 설명)",
-            "howToAi": "ChatGPT, Midjourney 등 AI를 어떻게 활용해서 만들지 안내"
+            "howToAi": "생성형 AI를 어떻게 활용해서 만들지 안내"
           }
         ]
       }
@@ -182,6 +183,12 @@ useEffect(() => {
 
   // 처음부터 다시하기
   const resetApp = () => {
+    // 👈 다시하기를 누르는 순간 BGM과 효과음 모두 즉시 정지!
+    bgmAudio.current.pause();
+    bgmAudio.current.currentTime = 0;
+
+    soundEffectRef.current.pause();
+    soundEffectRef.current.currentTime = 0;
     const shuffled = [...QUESTION_BANK].sort(() => 0.5 - Math.random());
     setQuestions(shuffled.slice(0, 10));
     setAnswers([]);
@@ -301,8 +308,9 @@ useEffect(() => {
   }
 
   if (step === 'result' && resultData) {
+    const randomSeed = Math.floor(Math.random() * 1000000); // 👈 매번 다른 이미지가 나오게 하는 랜덤 시드
     const encodedPrompt = encodeURIComponent(resultData.imagePrompt);
-    const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=800&height=800&nologo=true`;
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?model=flux&width=1024&height=1024&seed=${randomSeed}&nologo=true`; // 👈 model=flux와 seed 추가
 
     return (
       <div className="min-h-screen bg-gray-50 pb-20">
