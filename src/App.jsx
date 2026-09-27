@@ -104,8 +104,8 @@ useEffect(() => {
     } else {
       // 10번 문항을 마치고 넘어가는 순간 효과음 재생 및 로딩 전환
       soundEffectRef.current.currentTime = 0; // 재생 위치를 처음으로 초기화
-      soundEffect.volume = 0.4; // 효과음 볼륨 40%
-      soundEffect.play().catch(e => console.log(e));
+      soundEffectRef.volume = 0.4; // 효과음 볼륨 40%
+      soundEffectRef.play().catch(e => console.log(e));
 
       setStep('loading');
       generateAIResult(newAnswers);
